@@ -75,15 +75,18 @@ class SampClient(object):
         #gamemode = decode_string(response, offset + 9, 4)
         #offset += len(gamemode)
         #language = decode_string(response, offset + 13, 4)
-
-        return ServerInfo(
-            #password=bool(response[0]),
-            players=decode_int(response[1:3]),
-            max_players=decode_int(response[3:5]),
-            #hostname=hostname,
-            #gamemode=gamemode,
-            #language=language,
-        )
+        
+        try:
+            return ServerInfo(
+                #password=bool(response[0]),
+                players=decode_int(response[1:3]),
+                max_players=decode_int(response[3:5]),
+                #hostname=hostname,
+                #gamemode=gamemode,
+                #language=language,
+            )
+        except:
+            return null
 
     def get_server_rules(self):
         response = self.send_request(OPCODE_RULES)

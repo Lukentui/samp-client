@@ -77,7 +77,7 @@ class SampClient(object):
         #language = decode_string(response, offset + 13, 4)
 
         return ServerInfo(
-            password=bool(response[0]),
+            #password=bool(response[0]),
             players=decode_int(response[1:3]),
             max_players=decode_int(response[3:5]),
             #hostname=hostname,

@@ -86,7 +86,7 @@ class SampClient(object):
                 #language=language,
             )
         except:
-            return null
+            return None
 
     def get_server_rules(self):
         response = self.send_request(OPCODE_RULES)
